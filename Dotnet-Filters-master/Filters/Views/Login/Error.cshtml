@@ -1,0 +1,14 @@
+﻿@model Exception
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Error</h2>
+<div class="jumbotron">
+    <h2>
+        @Model.Message
+    </h2>
+    <p>
+        @Model.StackTrace
+    </p>
+</div>

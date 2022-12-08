@@ -1,0 +1,161 @@
+﻿@using CodeFirst_sp.Models.Combine_Model;
+
+
+@model CombineModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kitap bilgileri</h2>
+
+
+
+
+@*<style>
+    .th {
+        padding: 15px inherit
+    }
+</style>*@
+
+
+@*<div class="container">
+    <div class="row">
+        <div class="col">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="th">AD</th>
+                        <th class="th">AÇIKLAMA</th>
+                        <th class="th">DOĞUM TARİHİ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Authors)
+                    {
+                        <tr>
+                            <td>@item.Authorname</td>
+                            <td>@item.Statement</td>
+                            <td>@item.Dateofbirth</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="th">ADET</th>
+                    <th class="th">TARİH</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.BookPublishing)
+                {
+                    <tr>
+                        <td>@item.Number</td>
+                        <td>@item.Releasedate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="th">KİTAP ADI</th>
+                    <th class="th">KİTAP AÇIKLAMA</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.BookView)
+                {
+                    <tr>
+                        <td>@item.Bookname</td>
+                        <td>@item.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>*@
+
+<div class="row">
+    <div class="col-6 col-md-4">
+        <table>
+            <thead>
+                <tr>
+                    <th class="th">AD</th>
+                    <th class="th">AÇIKLAMA</th>
+                    <th class="th">DOĞUM TARİHİ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Authors)
+                {
+                    <tr>
+                        <td>@item.Authorname</td>
+                        <td>@item.Statement</td>
+                        <td>@item.Dateofbirth</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+@foreach (var item in Model.BookPublishing)
+{
+    <p>@item.Releasedate <b>tarih</b> </p>
+    <p>@item.Number<b>sayısı</b> </p>
+}
+
+<hr />
+
+<h2>Kitap bilgileri</h2>
+@foreach (var item in Model.BookView)
+{
+    <p><b>Kitap adı</b> @item.Bookname</p>
+    <p><b>Kitap açıklaması</b>@item.Statement</p>
+}
+
+
+
+<hr />
+<h2>Yazar bilgileri</h2>
+@foreach (var item in Model.Authors)
+{
+
+    <p><b>Yazar adı => </b>@item.Authorname</p>
+    <p><b>Yazar açıklama => </b>@item.Statement</p>
+    <p><b>Yazar dogum tarihi => </b>@item.Dateofbirth</p>
+
+}

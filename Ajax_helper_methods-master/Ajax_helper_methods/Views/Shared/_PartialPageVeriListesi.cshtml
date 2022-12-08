@@ -1,0 +1,22 @@
+﻿@model List<string> 
+@foreach (var item in @Model)
+{   
+    <li id="id_@Model.IndexOf(item)">
+        @*<a href="/Home/DataSil/@Model.IndexOf(item)" class="btn-danger">Sil</a>*@ 
+        @Ajax.ActionLink(
+        "Sil",
+        "DataSil", 
+        new { id= @Model.IndexOf(item) },
+        new AjaxOptions(){ 
+            LoadingElementId="loading",
+            LoadingElementDuration=300,
+            HttpMethod="GET",
+            InsertionMode=InsertionMode.ReplaceWith,
+            UpdateTargetId=$"id_{Model.IndexOf(item)}"
+            },
+        new {@class="btn-danger"}
+        );
+        @item 
+    </li>
+
+}

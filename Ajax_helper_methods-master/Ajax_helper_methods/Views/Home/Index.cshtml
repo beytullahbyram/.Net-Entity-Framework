@@ -1,0 +1,39 @@
+﻿@model PartialViewResult
+{
+    ViewBag.Title = "Index"
+}
+
+<h2>Index</h2>
+
+@*<a class="btn btn-info"> Verileri yükle</a>*@
+
+
+@Ajax.ActionLink("verileri yükle", "VeriYukle", null, new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "list",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "loading",
+    LoadingElementDuration = 300
+}, new { @class = "btn btn-info" })
+
+<div id="loading" class="alert" style="display:none">
+
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<hr />
+<ul class="list-group-item-dark" id="list">
+    @*<li></li>*@
+</ul>
+
+
+@Ajax.ActionLink("verileri kaybet", "VeriKaybet", null, new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "list",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementId = "loading",
+    LoadingElementDuration = 200
+}, new { @class = "btn btn-info" })

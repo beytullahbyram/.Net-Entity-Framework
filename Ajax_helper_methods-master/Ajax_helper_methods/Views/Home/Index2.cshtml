@@ -1,0 +1,45 @@
+﻿@using Ajax_helper_methods.Models
+@model Ajax_helper_methods.Models.Kisi
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+@using (Ajax.BeginForm("Index2", new AjaxOptions() 
+    { 
+        HttpMethod = "POST",
+        LoadingElementId="loading",
+        LoadingElementDuration=300,
+        UpdateTargetId="list",
+        InsertionMode=InsertionMode.InsertAfter,
+    }))
+{
+   
+    <div class="col-md-2">
+        @Html.TextBoxFor(x => x.adi, new { @class = "form-control" })
+    </div>
+    <div class="col-md-10">
+        <button type="submit" class="btn-dark">Gönder</button>
+    </div>
+}
+<hr />
+<ul id="list" class="list-group">
+    <li id="loading" class="list-group-item">Loading...</li>
+    @*@if(ViewBag.liste != null)
+    {
+        foreach (Kisi item in ViewBag.liste)
+        {
+            <li>@item.adi</li>
+        }*@
+    }
+</ul>
+
+
+
+
+@*<b>
+    @Session.Keys.Get(1)
+
+</b>*@
+
